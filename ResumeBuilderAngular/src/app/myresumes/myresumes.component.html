@@ -1,0 +1,59 @@
+<div *ngIf="state=='success'" >
+<div *ngIf="resumes.length>0;else nothing" class="container-fluid">
+  <div class="row">
+    <div class="col-10 mx-auto col-md-6 my-3 " *ngFor="let resume of resumes">
+        <div *ngIf="resume['state']=='success'" class="card  shadow-lg mx-auto  h-100   mb-3" style="width: 18rem;">
+            <div class="card-header w-100 bg-success text-white">Resume Is Ready</div>
+            <div class="card-body">
+              <h5 class="card-title">{{resume["resumename"]}}</h5>
+              <p class="card-text">Click The Button Below To Edit.</p>
+              <a [routerLink]="'/showResume'" [queryParams]="{'resumeId':resume['_id']}" class="btn m-2  btn-outline-success">Edit Resume</a>
+              <a [routerLink]="'/printResume'" [queryParams]="{'resumeId':resume['_id']}" class="btn m-2  btn-outline-success">Print Resume</a>
+            </div>
+            
+          </div>
+          <div *ngIf="resume['state']=='pending'" class="card shadow-lg mx-auto h-100  mb-3" style="width: 18rem;">
+            <div class="card-header bg-warning text-white">Generating resume</div>
+            <div class="card-body">
+              <h5 class="card-title">{{resume["resumename"]}}</h5>
+              <p class="card-text">Waiting For OpenAI.</p>
+              
+            </div>
+            
+          </div>
+          <div *ngIf="resume['state']=='failure'" class="card shadow-lg mx-auto  h-100  mb-3" style="width: 18rem;">
+            <div class="card-header bg-danger text-white">Failed To Generate Resume</div>
+            <div class="card-body">
+              <h5 class="card-title">{{resume["resumename"]}}</h5>
+              <p class="card-text">OpenAI failed us.</p>
+              
+            </div>
+            
+          </div>
+
+        </div>
+  </div>
+</div>
+<ng-template #nothing style="color: var(--dark-blue);" class="container-fluid mt-5 p-5">
+  <div style="height:80vh" class=" d-flex flex-column justify-content-center my-auto">
+    <i class=' mt-5 col-12 fa-solid fa-5x  fa text-center  fa-warning'></i>
+    <h1 class="h1  text-center mt-">Seems You Dont Have Any Resumes :(</h1>
+</div>
+</ng-template>
+
+</div>
+<div *ngIf="state=='loading'" style="color: var(--dark-blue);" class="container-fluid mt-5 p-5">
+    <div class="row  justify-content-center">
+    <div style="width: 5rem; height: 5rem;" class=" m-auto spinner-border m-5 h1" role="status">
+      <span class="h1  sr-only">Loading...</span>
+    </div>
+    <h1 class="text-center mt-5 ">Fetching Data</h1>
+  </div>
+  </div>
+
+  <ng-container *ngIf="state=='failure'" style="color: var(--dark-blue);" class="container-fluid mt-5 p-5">
+    <div style="height:80vh" class=" d-flex flex-column justify-content-center my-auto">
+      <i class=' mt-5 col-12 fa-solid fa-5x  fa text-center  fa-warning'></i>
+      <h1 class="h1  text-center mt-">Seems Like An Error :(</h1>
+  </div>
+  </ng-container>

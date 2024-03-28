@@ -1,0 +1,39 @@
+.home
+{
+    background-color: var(--peach);
+    
+}
+
+.inst
+{
+    background-color: var(--dark-blue);
+    color: var(--peach);
+}
+.red
+{
+    color: var(--red);
+}
+
+.blue
+{
+    color: var(--dark-blue);
+}
+h2
+{
+    text-align: center;
+}
+
+.my-btn
+{   padding: 1rem;
+    background-color: var(--peach);
+    border: .3rem solid var(--dark-blue);
+    text-decoration: none;
+    color: var(--dark-blue);
+    border-radius: 1rem;
+}
+
+.my-btn:hover
+{
+    background-color: var(--dark-blue);
+    color: var(--peach);;
+}

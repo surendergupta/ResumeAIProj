@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        
+            <a class="navbar-brand fw-bolder fs-2" >ResumeTo<span>Go</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                
+                <div *ngIf="(authStore.currentUser$ | async) as curUser" class="ms-auto navbar-nav">
+
+                    <ng-container *ngIf="curUser.loggedIn else NotLoggedIn">
+                      <div class="d-flex border-3 border p-1  align-items-center mx-3" *ngIf="curUser.isPremium">
+                        Premium<i class="fa-solid mx-2 fa-crown"></i>
+                        {{curUser.aiResumesLeft}} 
+                      </div>
+
+                      <div class="d-flex border-3 border p-1  align-items-center mx-3" *ngIf="!curUser.isPremium">
+                        <a clas="nav-link" [routerLink]="'/user/addSubscription'">Upgrade Right Now</a>
+                      </div>
+                        <a *ngFor="let nav of loggedInNavs" class="nav-link" [routerLink]="nav.link" >{{nav.name}}</a>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              {{curUser.name}}
+                            </a>
+                            <ul class="fix dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                              <li *ngFor="let nav of loggedInNavs"><a [routerLink]="nav.link" class="dropdown-item" >{{nav.name}}</a></li>
+                              <li ><a (click)="logout()" class="dropdown-item" >Log Out</a></li>
+                            </ul>
+                          </li>
+                    </ng-container>
+                    
+                    <ng-template #NotLoggedIn>
+                        <a *ngFor="let nav of loggedOutNavs" [routerLink]="nav.link"  class="mybut nav-link btn btn-outline-danger me-3 fw-bold" >{{nav.name}}</a>
+                    </ng-template>
+                    
+                </div>
+            </div>
+       
+    </div>
+  </nav>

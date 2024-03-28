@@ -1,0 +1,92 @@
+<!--Start Of Image Cropper-->
+<ng-template #modal>
+    <div class="d-flex p-3 flex-column">
+      <div
+        class="h2 text-danger text-center border-bottom border-3 border-danger">
+        Crop Image
+      </div>
+      <image-cropper
+        
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="3 / 3"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+
+      ></image-cropper>
+      <div class="d-flex justify-content-evenly">
+        <button (click)="saveImage()" class="btn btn-outline-success">Save</button>
+        <button (click)="exitModal()" class="btn btn-outline-danger">Cancel</button>
+      </div>
+    </div>
+  </ng-template>
+<!--End Of Image Cropper-->
+    <div *ngIf="resumeOptions.headerAlignment=='vertical'" (click)="serialize()"  class="container-fluid px-3 pt-3 basic-header">
+        <div class="row">
+            <div class="col-12">
+                <div #header *ngIf="headerModel['name']" class="editable" id="name" [innerHTML]="headerModel['name'].headerContent | safeHtml"></div>
+                <div #header *ngIf="headerModel['profession']" class="editable" id="profession" [innerHTML]="headerModel['profession'].headerContent| safeHtml"></div>
+            </div>
+
+            <div class="col-12 container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <label class="d-flex" >
+                        <input accept="image/*" type="file" (change)="fileChangeEvent($event)" style="display: none;" />
+                        <img  #profile  [src]="resumeOptions.profileImage" style="width: 100% !important;height: auto !important;" class="img-fluid img rounded-circle" alt="Responsive image">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 container-fluid mt-3 mb-0">
+                
+                <div  class="row justify-content-center">
+                        <div *ngIf="resumeOptions.showEmail" class="col-4 justify-content-center fw-bolder d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faEnvelope"></fa-icon>
+                           <div class="editable " id="email" #header [innerHTML]="(headerModel['email']!=undefined?headerModel['email'].headerContent:'<h5>Email</h5>') | safeHtml"></div>
+                        </div>
+
+                        <div *ngIf="resumeOptions.showPhone" class="col-4 fw-bolder justify-content-center d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faPhone"></fa-icon>
+                           <div class="editable " id="phone" #header [innerHTML]="(headerModel['phone']!=undefined?headerModel['phone'].headerContent:'<h5>Phone</h5>') |safeHtml"></div>
+                        </div>
+                        <div *ngIf="resumeOptions.showLocation" class="col-4 fw-bolder justify-content-center d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faLocation"></fa-icon>
+                           <div class="editable " id="location" #header [innerHTML]="(headerModel['location']!=undefined?headerModel['location'].headerContent:'<h5>Location</h5>') | safeHtml"></div>
+                        </div>
+                 </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+
+    <div (click)="serialize()" *ngIf="resumeOptions.headerAlignment=='horizontal'"  class="container-fluid px-3 pt-3 basic-header">
+        <div class="row">
+            <div class="col-8">
+                <div #header *ngIf="headerModel['name']" class="editable" id="name" [innerHTML]="headerModel['name'].headerContent | safeHtml"></div>
+                <div #header *ngIf="headerModel['profession']" class="editable" id="profession" [innerHTML]="headerModel['profession'].headerContent| safeHtml"></div>
+            </div>
+            <div class="col-4 container-fluid mt-3 mb-3">
+                
+                <div  class="row justify-content-center">
+                        <div *ngIf="resumeOptions.showEmail" class="col-12 justify-content-start fw-bolder d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faEnvelope"></fa-icon>
+                           <div class="editable " id="email" #header [innerHTML]="(headerModel['email']!=undefined?headerModel['email'].headerContent:'<h5>Email</h5>') | safeHtml"></div>
+                        </div>
+
+                        <div *ngIf="resumeOptions.showPhone" class="col-12 fw-bolder justify-content-start d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faPhone"></fa-icon>
+                           <div class="editable " id="phone" #header [innerHTML]="(headerModel['phone']!=undefined?headerModel['phone'].headerContent:'<h5>Phone</h5>') |safeHtml"></div>
+                        </div>
+                        <div *ngIf="resumeOptions.showLocation" class="col-12 fw-bolder justify-content-start d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faLocation"></fa-icon>
+                           <div class="editable " id="location" #header [innerHTML]="(headerModel['location']!=undefined?headerModel['location'].headerContent:'<h5>Location</h5>') | safeHtml"></div>
+                        </div>
+                 </div>
+            
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,43 @@
+nav
+{
+    background-color: var(--dark-blue) !important;
+    z-index: 100;
+    top: 0px;
+    font-weight: bolder;
+}
+
+:host{
+    z-index: 100;
+}
+
+nav *
+{
+    color: var(--peach) ;
+}
+@media (min-width:992px){
+.fix
+{
+    transform: translateX(-50px);
+}
+}
+
+.mybut
+{
+    border-color: var(--peach);
+    background-color: var(--dark-blue);
+    color: white !important;
+}
+
+.mybut:hover,.mybut:active
+{
+    background-color: var(--peach);
+    color: var(--bs-danger) !important;
+    border-color: var(--peach);
+}
+
+@media print{
+
+    nav{
+        display: none !important;
+    }
+}

@@ -1,0 +1,132 @@
+.toolbar
+{
+    background-color: var(--dark-blue);
+    position: sticky;
+    top: 0;
+    color: var(--peach);
+    z-index: 99;
+    overflow: hidden;
+    
+}
+
+.mybut,.mybut:hover
+{
+    background-color: var(--peach);
+    font-weight: bolder;
+    color: black !important;
+}
+
+
+
+.page
+{   
+ 
+  width: 210mm !important;
+  min-height: 297mm !important;
+  background-color: white;
+  transform-origin: 50% 0% ;
+  display: block;
+
+
+
+  
+
+}
+
+.page-container
+{
+  
+ 
+  overflow: auto;
+
+}
+
+
+
+h1
+{
+    font-size: 48pt !important;
+}
+
+h2
+{
+    font-size: 32pt !important;
+}
+
+h3
+{
+    font-size: 24pt !important;
+}
+
+h4
+{
+    font-size: 22pt !important;
+}
+
+h5
+{
+    font-size: 18pt !important;
+}
+
+h6
+{
+    font-size: 14pt !important;
+}
+
+.sidebar
+{
+  position: sticky;
+  top:100px;
+  height: fit-content;
+ 
+}
+
+
+
+
+/* for sm * Bootstrap switch sizes*/
+
+.form-check-input {
+    clear: left;
+  }
+  
+  .form-switch.form-switch-sm {
+    margin-bottom: 0.5rem; /* JUST FOR STYLING PURPOSE */
+  }
+  
+  .form-switch.form-switch-sm .form-check-input {
+    height: 1rem;
+    width: calc(1rem + 0.75rem);
+    border-radius: 2rem;
+  }
+  
+  .form-switch.form-switch-md {
+    margin-bottom: 1rem; /* JUST FOR STYLING PURPOSE */
+  }
+  
+  .form-switch.form-switch-md .form-check-input {
+    height: 1.5rem;
+    width: calc(2rem + 0.75rem);
+    border-radius: 3rem;
+  }
+  
+  .form-switch.form-switch-lg {
+    margin-bottom: 1.5rem; /* JUST FOR STYLING PURPOSE */
+  }
+  
+  .form-switch.form-switch-lg .form-check-input {
+    height: 2rem;
+    width: calc(3rem + 0.75rem);
+    border-radius: 4rem;
+  }
+  
+  .form-switch.form-switch-xl {
+    margin-bottom: 2rem; /* JUST FOR STYLING PURPOSE */
+  }
+  
+  .form-switch.form-switch-xl .form-check-input {
+    height: 2.5rem;
+    width: calc(4rem + 0.75rem);
+    border-radius: 5rem;
+  }
+  

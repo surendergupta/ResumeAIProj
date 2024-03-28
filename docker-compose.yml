@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./ResumeBuilderAngular
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+  backend:
+    build: ./ResumeBuilderBackend
+    ports:
+      - "4292:4292"
+    # volumes:
+    #   - ./ResumeBuilderBackend/.env:/app/.env

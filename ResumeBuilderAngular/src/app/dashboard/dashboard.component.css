@@ -1,0 +1,25 @@
+.row *{
+    color: var(--dark-blue) !important;
+}
+
+.card
+{
+    border-color:var(--blue) !important ;
+    border-width: .3rem;
+}
+
+.mybut
+{
+    border-color: var(--dark-blue) !important;
+    color: var(--dark-blue);
+    font-weight: bolder;
+    
+    background-color: var(--peach);
+}
+
+.mybut:hover,.mybut:active
+{
+    color: var(--peach) !important;
+    background-color: var(--dark-blue);
+    border-color: var(--peach);
+}

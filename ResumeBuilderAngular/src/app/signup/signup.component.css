@@ -1,0 +1,45 @@
+.card
+{
+    border: none;
+    
+}
+
+input.ng-valid  {
+    border-bottom: 5px solid #42A948; /* green */
+  }
+
+  
+  .ng-invalid:not(form)  {
+    border-bottom: 5px solid #a94442; /* red */
+  }
+
+div{
+    z-index: 0;
+    background-color: var(--peach);
+    
+}
+.mybut
+{
+    border-color: var(--dark-blue) !important;
+    color: var(--dark-blue);
+    font-weight: bolder;
+    
+    background-color: var(--peach);
+}
+
+.mybut:hover,.mybut:active
+{
+    color: var(--peach);
+    background-color: var(--dark-blue);
+    border-color: var(--peach);
+}
+.blue
+{
+    color:var(--dark-blue) !important;
+    font-weight: bolder;
+}
+.mypopoverclass
+{
+  background-color: red !important;
+  color: white;
+}

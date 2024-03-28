@@ -1,0 +1,31 @@
+Master Class Command
+
+kubectl apply -f .\k8s\backend-deployment.yml
+kubectl apply -f .\k8s\backend-service.yml
+kubectl apply -f .\k8s\frontend-deployment.yml
+kubectl apply -f .\k8s\backend-service.yml
+
+kubectl get-svc
+minikube service frontend-service
+kubectl get pods
+kubectl get deployment
+kubectl run nginx --image=nginx -o yaml
+kubectl run nginx --image=nginx
+kubectl get svc -A
+kubectl expose --help
+minikube service myapp-service
+kubectl port-forward service/myapp-service 4292:4292
+
+eksctl create cluster --name resumeaicluster --region us-east-1 --nodegroup-name standard-worker --node-type t3.micro --nodes 2 --nodes-min 1 --nodes-max 3
+eksctl get cluster --name resumeaicluster
+aws eks --region us-east-1 update-kubeconfig --name resumeaicluster
+
+kubectl get nodes
+
+kubectl apply -f .\k8s\frontend-deployment.yml
+kubectl apply -f .\k8s\frontend-service.yml
+kubectl apply -f .\k8s\backend-deployment.yml
+kubectl apply -f .\k8s\backend-service.yml
+
+kubectl get pods 
+kubectl get svc

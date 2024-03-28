@@ -1,0 +1,35 @@
+<div  *ngIf="resumeModel"  class=" h-100 d-flex flex-column">
+
+    <app-basic-header  [resumeOptions]="resumeOptions" [style]="{backgroundColor:resumeOptions.headerBackgroundColor,color:resumeOptions.headerTextColor}"  class="col-12 p-0" [headerModel]="resumeModel['headers']"></app-basic-header>
+    <ng-container *ngIf="resumeOptions.sectionAlignment!='half'">
+        <div *ngIf="isPrint==false" dragula="sectiondrag" [style]="{backgroundColor:resumeOptions.bodyBackgroundColor,color:resumeOptions.bodyTextColor}"  class="p-0 flex-grow-1 col-12" [(dragulaModel)]="resumeModel['sections']" >
+            <app-basic-section [sectionAlignment]="resumeOptions.sectionAlignment"   *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
+            
+        </div>
+
+            
+        <ng-container *ngIf="isPrint==true"     class="p-0 flex-grow-1 col-12" >
+            
+            <app-basic-section  [sectionAlignment]="resumeOptions.sectionAlignment" style="page-break-inside: avoid;" [style]="{backgroundColor:resumeOptions.bodyBackgroundColor,color:resumeOptions.bodyTextColor}"   *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
+            
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="resumeOptions.sectionAlignment=='half'">
+        <div *ngIf="isPrint==false"  [style]="{backgroundColor:resumeOptions.bodyBackgroundColor,color:resumeOptions.bodyTextColor}"   class="p-0 flex-grow-1 container-fluid col-12"  >
+            <div  class="row m-0 p-0" [(dragulaModel)]="resumeModel['sections']" dragula="sectiondrag" >
+                <app-basic-section  [sectionAlignment]="resumeOptions.sectionAlignment" class="col-6"   *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
+           </div>
+        </div>
+
+            
+        <ng-container *ngIf="isPrint==true"     class="p-0 flex-grow-1 col-12" >
+            <div class="container-fluid" [style]="{backgroundColor:resumeOptions.bodyBackgroundColor,color:resumeOptions.bodyTextColor}">
+                <div class="row m-0 p-0" >
+                    <app-basic-section  [sectionAlignment]="resumeOptions.sectionAlignment" class="col-6"   *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
+                </div>
+           </div>
+        </ng-container>
+    </ng-container>
+
+</div>

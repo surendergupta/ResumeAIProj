@@ -1,0 +1,32 @@
+<ng-template  #modal >
+    
+    <div *ngIf="state=='loading'" class="p-5 d-flex flex-column align-items-center ">
+        <div class="spinner-border my-2 " style="color: red;width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading</span>
+        </div>
+        <h1 class="h1 text-center my-2 text-danger">{{"Loading"}}</h1>
+    </div>
+    
+    <div *ngIf="state == 'success'" class="p-5 d-flex flex-column align-items-center ">
+        <h2  class="text-center my-2 text-success h2">
+            
+            {{message}}
+        </h2>
+        
+    </div>
+
+    <div *ngIf="state == 'failure'" class="p-5 d-flex flex-column align-items-center ">
+        <h2  class="my-2 text-center text-danger h2">
+            {{message}}
+        </h2>
+        <button class="btn btn-outline-danger fw-bolder"  (click)="close()" >Close</button>
+    </div>
+
+    <div *ngIf="state == 'invalid'" class="p-5 d-flex flex-column align-items-center ">
+        <h2  class="my-2 text-center text-danger h2">
+            Enter Valid Fields
+        </h2>
+        <button class="btn btn-outline-danger fw-bolder"  (click)="close()" >Close</button>
+    </div>
+
+</ng-template>
